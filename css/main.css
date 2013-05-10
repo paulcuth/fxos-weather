@@ -1,0 +1,283 @@
+@charset "UTF-8";
+
+
+html {
+    background-color: #000;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'PT Serif', serif;
+	white-space: nowrap;
+	border: 0;
+	margin: 0;
+}
+
+
+p {
+	margin: 0;
+}
+
+
+#cities {
+	display: inline;
+	white-space: nowrap;
+	width: 100%;
+}
+
+
+section.city,
+#add-city {
+	display: inline-block;
+	width: 96%;
+	margin: 2%;
+	border-radius: 24px;
+	vertical-align: top;
+	background-color: rgba(128, 128, 128, .3);
+}
+
+
+section.city header {
+	height: 110px;
+	border-bottom: 1px solid rgba(255, 255, 255, .1);
+	position: relative;
+	padding: 0 8px;
+	background-position: 80% center;
+	background-repeat: no-repeat;
+	background-size: 45%;
+	text-shadow: 0 0 10px #000;
+}
+
+.condition-0,
+.condition-1,
+.condition-2,
+.condition-3200 {
+	background-image: url('../img/icons/tornado.png');
+}
+
+.condition-3,
+.condition-4,
+.condition-37,
+.condition-38,
+.condition-39,
+.condition-40,
+.condition-47 {
+	background-image: url('../img/icons/thunderstorms.png');
+}
+
+.condition-5,
+.condition-6,
+.condition-7,
+.condition-35 {
+	background-image: url('../img/icons/mixed-rain-and-snow.png');
+}
+
+.condition-8,
+.condition-13,
+.condition-14,
+.condition-15,
+.condition-16,
+.condition-41,
+.condition-42,
+.condition-43,
+.condition-46 {
+	background-image: url('../img/icons/snow.png');
+}
+
+.condition-9,
+.condition-11,
+.condition-12,
+.condition-40 {
+	background-image: url('../img/icons/rain.png');
+}
+
+.condition-17,
+.condition-18 {
+	background-image: url('../img/icons/hail.png');
+}
+
+.condition-19,
+.condition-20 {
+	background-image: url('../img/icons/fog.png');
+}
+
+.condition-21,
+.condition-22 {
+	background-image: url('../img/icons/haze.png');
+}
+
+.condition-23,
+.condition-24 {
+	background-image: url('../img/icons/windy.png');
+}
+
+.condition-10,
+.condition-25 {
+	background-image: url('../img/icons/cold.png');
+}
+
+.condition-26,
+.condition-28 {
+	background-image: url('../img/icons/cloudy.png');
+}
+
+.condition-30,
+.condition-44 {
+	background-image: url('../img/icons/partly-cloudy.png');
+}
+
+.condition-32,
+.condition-34,
+.condition-36 {
+	background-image: url('../img/icons/fair.png');
+}
+
+.condition-27 {
+	background-image: url('../img/icons/night/cloudy.png');
+}
+
+.condition-29 {
+	background-image: url('../img/icons/night/partly-cloudy.png');
+}
+
+.condition-31,
+.condition-33 {
+	background-image: url('../img/icons/night/fair.png');
+}
+
+
+
+section.city header .name {
+	padding-top: 38px;
+	font-size: 36px;
+	line-height: 40px;
+	opacity: .75;
+}
+
+section.city header .condition {
+	font-size: 16px;
+	line-height: 22px;
+	opacity: .4;
+}
+
+section.city header .temp {
+	font-size: 80px;
+	line-height: 80px;
+	position: absolute;
+	vertical-align: bottom;
+	bottom: 3px;
+	right: 8px;
+	opacity: .75;
+}
+
+section.city header .temp:after {
+	content: '°C';
+	line-height: 80px;
+	font-size: 16px;
+	vertical-align: top;
+	opacity: .4;
+}
+
+
+ul {
+	margin: 0;
+	padding: 0;
+	opacity: .75;
+}
+
+li {
+	list-style: none;
+	background-position: 50% center;
+	background-size: 20%;
+	background-repeat: no-repeat;
+	border-bottom: 1px dotted rgba(255, 255, 255, .1);
+	height: 80px;
+	padding: 0 8px;
+}
+
+li:last-child {
+	border-bottom: none;
+}
+
+li .day {
+	padding-top: 19px;
+	font-size: 24px;
+	line-height: 22px;
+	float: left;
+}
+
+li .condition {
+	font-size: 12px;
+	line-height: 20px;
+	opacity: .45;
+	clear: left;
+}
+
+li .high {
+	font-size: 32px;
+	line-height: 80px;
+	float: right;
+	display: inline-block;
+	width: 42px;
+	text-align: center;
+}
+
+li .low {
+	font-size: 18px;
+	line-height: 80px;
+	opacity: .45;
+	float: right;
+	display: inline-block;
+	width: 32px;
+	text-align: center;
+}
+
+
+#add-city {
+	vertical-align: top;
+	height: 516px;
+}
+
+
+#add-city form {
+	display: block;
+	margin: 0;
+	padding: 15px 3%;
+	border-bottom: 1px solid rgba(255, 255, 255, .1);
+	font-size: 16px;
+	opacity: .75;
+}
+
+#add-city input {
+	display: block;
+	width: 100%;
+	height: 16px;
+	border-radius: 8px;
+	border: none;
+}
+
+
+#add-city li {
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+#add-city ul {
+	max-height: 454px;
+	overflow-y: auto;
+}
+
+
+
+@media screen and (min-width: 600px) {
+
+	section.city,
+	#add-city {
+		width: 600px;
+	}	
+
+}
+
