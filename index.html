@@ -1,28 +1,23 @@
 <!DOCTYPE html>
-<html manifest="rumble.appcache">
+<html manifest="cache.manifest">
 	<head>
-		<title>Rumble</title>
+		<title>Weather</title>
 		
 		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 		<meta content="utf-8" http-equiv="encoding">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-		<link rel="shortcut icon" href="./img/icons/thunderstorms.png">
-
-		<link rel="apple-touch-icon" sizes="57x57" href="./img/icons/57x57.png" />
-		<link rel="apple-touch-icon" sizes="72x72" href="./img/icons/72x72.png" />
-		<link rel="apple-touch-icon" sizes="114x114" href="./img/icons/114x114.png" />
-		<link rel="apple-touch-icon" sizes="144x144" href="./img/icons/144x144.png" />
-
+		<link rel="shortcut icon" href="./img/icon-128.png">
 
 		<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="./css/main.css" />
 		
+
 		<script type="text/html" id="city-template">
 			<header class="condition-{{current.code}}">
 				<p class="name">{{name}}</p>
 				<p class="condition">{{current.text}}</p>
-				<p class="temp">{{current.temp}}</p>
+				<p class="temp">{{current.temp_CF}}</p>
 			</header>
 			<ul>
 				{{days}}
@@ -32,27 +27,68 @@
 		<script type="text/html" id="list-template">
 			<li class="condition-{{day_X.code}}">
 				<p class="day">{{name}}</p>
-				<p class="low">{{day_X.low}}</p>
-				<p class="high">{{day_X.high}}</p>
+				<p class="low">{{day_X.low_CF}}</p>
+				<p class="high">{{day_X.high_CF}}</p>
 				<p class="condition">{{day_X.text}}</p>
 			</li>
 		</script>
-</head>
+	</head>
 	
 	<body>
 		<main>
-			<div id="cities"></div>
-			
-			<section id="add-city">
-				<form>
-					<label for="city-name">Add city:</label>
-					<input type="search" id="city-name" name="cityName" />
-				</form>
-				<ul></ul>
+			<div id="cities"></div><!--
+
+		 --><section id="settings">
+				
+				<section id="add">
+					<header>
+						<p>Add a city</p>
+					</header>
+					<div class="content">
+						<form>
+							<input type="search" id="city-name" name="cityName" placeholder="City name" /><input type="submit" value="&hellip;" />
+						</form>
+						<ul></ul>
+					</div>
+				</section>
+
+				<section id="manage">
+					<header>
+						<p>Manage cities</p>
+					</header>
+					<div class="content">
+						<ul></ul>
+					</div>
+				</section>
+
+				<section id="prefs">
+					<header>
+						<p>Settings</p>
+					</header>
+					<div class="content">
+						<p>
+							<button id="c" data-scale="c">&deg;C</button> <button id="f" data-scale="f">&deg;F</button>
+						</p>
+					</div>
+				</section>
+
+				<section id="about">
+					<header>
+						<p>About</p>
+					</header>
+					<div class="content">
+						<p>
+							Made by <a href="https://twitter.com/paulcuth" target="_blank">@paulcuth</a>.<br/>
+							Data from Yahoo Geo &amp; Weather APIs.<br/>
+							Weather icons by <a href="https://twitter.com/arandompackage" target="_blank">@arandompackage</a>.<br/>
+							<a href="https://github.com/paulcuth/fxos-weather" target="_blank">Source</a> and <a href="https://github.com/paulcuth/fxos-weather/issues" target="_blank">issues</a> available.
+						</p>
+					</div>
+				</section>
+
 			</section>
 		</main>
 
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="./js/lib/mustache.js"></script>
 		<script src="./js/comms.js"></script>
 		<script src="./js/main.js"></script>

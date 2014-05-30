@@ -1,0 +1,26 @@
+{
+  "version": "0.1.0",
+  "name": "Weather",
+  "launch_path": "/index.html",
+  "description": "Get the weather in any city.",
+  "icons": {
+    "16": "/img/icon-16.png",
+    "32": "/img/icon-32.png",
+    "48": "/img/icon-48.png",
+    "60": "/img/icon-60.png",
+    "64": "/img/icon-64.png",
+    "90": "/img/icon-90.png",
+    "120": "/img/icon-120.png",
+    "128": "/img/icon-128.png"
+  },
+  "developer": {
+    "name": "Paul Cuthbertson",
+    "url": "http://paulcuth.me.uk"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  }
+}

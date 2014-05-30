@@ -3,9 +3,14 @@ var rumble = rumble || {};
 rumble.comms = {
 	
 
+	/**
+	 * Make an HTTP GET request.
+	 * @param {string} url to which to send request.
+	 * @param {Function} success Success callback.
+	 * @param {Function} error Error callback.
+	 */
 	get: function rumble_comms_get (url, success, error) {
 		var xhr = new XMLHttpRequest();
-		//xhr.responseType = 'text';
 
 		xhr.onload = function (e) {
 			var data;
@@ -33,6 +38,12 @@ rumble.comms = {
 	
 	
 	
+	/**
+	 * Requests city data from Yahoo API.
+	 * @param {string} city City search criteria.
+	 * @param {Function} success Success callback.
+	 * @param {Function} error Error callback.
+	 */
 	getCityData: function rumble_comms_getCityData (city, success, error) {
 		var url = 'http://query.yahooapis.com/v1/public/yql?q=select%20city%2C%20country%2C%20woeid%20from%20geo.placefinder%20where%20text%3D%22' + encodeURIComponent(city) + '%22&format=json';
 		
@@ -50,6 +61,13 @@ rumble.comms = {
 	
 	
 	
+	/**
+	 * Requests weather data from Yahoo API.
+	 * @param {number} woeid City woeid.
+	 * @param {string} [id] City id.
+	 * @param {Function} success Success callback.
+	 * @param {Function} error Error callback.
+	 */
 	getWeatherData: function rumble_comms_getWeatherData (woeid, id, success, error) {
 		var me = this;
 
@@ -68,12 +86,21 @@ rumble.comms = {
 						forecast: results.item.forecast
 					};
 
+					// Convert deg F
+					result.current.temp_f = Math.round((result.current.temp_c = result.current.temp) * (9/5) + 32);
+
+					for (i = 0; i < result.forecast.length; i++) {
+						result.forecast[i].low_f = Math.round((result.forecast[i].low_c = result.forecast[i].low) * (9/5) + 32);
+						result.forecast[i].high_f = Math.round((result.forecast[i].high_c = result.forecast[i].high) * (9/5) + 32);
+					}
+
 					success(result, id);
 				}
 			});
 		}
 
 
+		// Prefer to use id over woeid as it is more specific.
 		if (id) {
 			getWeatherById(id);
 		
